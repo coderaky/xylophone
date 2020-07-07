@@ -9,55 +9,33 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundno.wav');
   }
 
+  Expanded buildkey({Color color, int soundno}) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          playsound(soundno);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              FlatButton(
-                color: Colors.red,
-                onPressed: () {
-                  playsound(1);
-                },
-              ),
-              FlatButton(
-                color: Colors.orange,
-                onPressed: () {
-                  playsound(2);
-                },
-              ),
-              FlatButton(
-                color: Colors.yellow,
-                onPressed: () {
-                  playsound(3);
-                },
-              ),
-              FlatButton(
-                color: Colors.green,
-                onPressed: () {
-                  playsound(4);
-                },
-              ),
-              FlatButton(
-                color: Colors.blue,
-                onPressed: () {
-                  playsound(5);
-                },
-              ),
-              FlatButton(
-                color: Colors.indigo,
-                onPressed: () {
-                  playsound(6);
-                },
-              ),
-              FlatButton(
-                color: Colors.blueGrey,
-                onPressed: () {
-                  playsound(7);
-                },
-              ),
+              buildkey(color: Colors.red, soundno: 1),
+              buildkey(color: Colors.orange, soundno: 2),
+              buildkey(color: Colors.yellow, soundno: 3),
+              buildkey(color: Colors.green, soundno: 4),
+              buildkey(color: Colors.blue, soundno: 5),
+              buildkey(color: Colors.indigo, soundno: 6),
+              buildkey(color: Colors.blueGrey, soundno: 7),
             ],
           ),
         ),
